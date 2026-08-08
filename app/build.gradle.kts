@@ -54,7 +54,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.17.0")
 
     // Play Billing — subscription equivalent of StoreKit 2 on iOS.
-    implementation("com.android.billingclient:billing-ktx:7.1.1")
+    implementation("com.android.billingclient:billing-ktx:9.1.0")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
 }

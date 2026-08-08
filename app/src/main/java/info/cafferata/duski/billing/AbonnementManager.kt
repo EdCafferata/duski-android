@@ -66,9 +66,9 @@ class AbonnementManager(context: Context) : PurchasesUpdatedListener {
             .setProductList(listOf(product))
             .build()
 
-        billingClient.queryProductDetailsAsync(params) { result, productDetailsList ->
+        billingClient.queryProductDetailsAsync(params) { result, queryProductDetailsResult ->
             if (result.responseCode == BillingClient.BillingResponseCode.OK) {
-                _producten.value = productDetailsList
+                _producten.value = queryProductDetailsResult.productDetailsList
             } else {
                 _laadFout.value = result.debugMessage
             }
