@@ -1,6 +1,6 @@
 # Duski (Android)
 
-🔒 Laatste security check: 2026-09-09 10:24 CEST
+🔒 Laatste security check: 2026-09-11 21:24 CEST
 
 Android port of [Duski](https://github.com/EdCafferata/duski), a free sleep-sounds and white-noise app. All sounds are generated procedurally on-device — no recordings, no streaming, no licensing risk — same as the iOS app.
 
