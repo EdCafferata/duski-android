@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.sp
 import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.sin
+import androidx.compose.ui.res.stringResource
+import info.cafferata.duski.R
 
 /**
  * Speelse screensaver: een schaap dat van rechts naar links loopt en over een
@@ -100,7 +102,7 @@ fun SheepScreensaverScreen(onSluiten: () -> Unit) {
         )
 
         Text(
-            "Tik om terug te gaan",
+            stringResource(R.string.tik_terug),
             modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 40.dp),
             color = Color.White.copy(alpha = 0.4f),
             fontSize = 13.sp,

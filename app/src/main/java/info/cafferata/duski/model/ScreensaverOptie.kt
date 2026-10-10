@@ -1,11 +1,13 @@
 package info.cafferata.duski.model
 
+import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
+import info.cafferata.duski.R
 
 /** Eén kiesbare screensaver-animatie binnen een categorie. */
 data class ScreensaverOptie(
     val id: String,
-    val titel: String,
+    @StringRes val titelRes: Int,
     val emoji: String,
     val type: ScreensaverType,
 )
@@ -38,104 +40,104 @@ enum class ScreensaverBeweging { GLIJDEN_ZIJWAARTS, VALLEN_OMLAAG, DRIJVEN_OMHOO
 val GeluidCategorie.screensaverOpties: List<ScreensaverOptie>
     get() = when (this) {
         GeluidCategorie.KLEURRUIS -> listOf(
-            ScreensaverOptie("tv-sneeuw", "Tv-sneeuw", "📺", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("tv-sneeuw", R.string.screensaver_tv_sneeuw, "📺", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "▫️",
                 achtergrondBoven = Color(0xFF262626), achtergrondOnder = Color(0xFF0D0D0D),
                 beweging = ScreensaverBeweging.TWINKELEN, aantalElementen = 40, snelheid = 30.0
             ))),
-            ScreensaverOptie("bloesem", "Bloesem", "🌸", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("bloesem", R.string.screensaver_bloesem, "🌸", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "🌸",
                 achtergrondBoven = Color(0xFF4D1A33), achtergrondOnder = Color(0xFF140814),
                 beweging = ScreensaverBeweging.DRIJVEN_OMHOOG, aantalElementen = 14, snelheid = 8.0
             ))),
-            ScreensaverOptie("aarde", "Aarde", "🟤", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("aarde", R.string.screensaver_aarde, "🟤", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "🟤",
                 achtergrondBoven = Color(0xFF33210F), achtergrondOnder = Color(0xFF0F0A05),
                 beweging = ScreensaverBeweging.DEINEN, aantalElementen = 12, snelheid = 6.0
             ))),
-            ScreensaverOptie("mist", "Mist", "🌫️", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("mist", R.string.screensaver_mist, "🌫️", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "🌫️",
                 achtergrondBoven = Color(0xFF383838), achtergrondOnder = Color(0xFF0F0F0F),
                 beweging = ScreensaverBeweging.GLIJDEN_ZIJWAARTS, aantalElementen = 10, snelheid = 12.0
             ))),
-            ScreensaverOptie("bubbels", "Bubbels", "🔵", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("bubbels", R.string.screensaver_bubbels, "🔵", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "🔵",
                 achtergrondBoven = Color(0xFF0D1A4D), achtergrondOnder = Color(0xFF05081A),
                 beweging = ScreensaverBeweging.DRIJVEN_OMHOOG, aantalElementen = 18, snelheid = 10.0
             ))),
         )
         GeluidCategorie.NATUUR -> listOf(
-            ScreensaverOptie("regen", "Regen", "🌧️", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("regen", R.string.screensaver_regen, "🌧️", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "💧",
                 achtergrondBoven = Color(0xFF14202E), achtergrondOnder = Color(0xFF05080F),
                 beweging = ScreensaverBeweging.VALLEN_OMLAAG, aantalElementen = 30, snelheid = 1.2
             ))),
-            ScreensaverOptie("golven", "Golven", "🌊", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("golven", R.string.screensaver_golven, "🌊", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "🌊",
                 achtergrondBoven = Color(0xFF0A2E47), achtergrondOnder = Color(0xFF030D1A),
                 beweging = ScreensaverBeweging.DEINEN, aantalElementen = 8, snelheid = 5.0
             ))),
-            ScreensaverOptie("wind", "Wind", "🍃", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("wind", R.string.screensaver_wind, "🍃", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "🍃",
                 achtergrondBoven = Color(0xFF1A3323), achtergrondOnder = Color(0xFF080F0A),
                 beweging = ScreensaverBeweging.GLIJDEN_ZIJWAARTS, aantalElementen = 14, snelheid = 26.0
             ))),
-            ScreensaverOptie("kampvuur", "Kampvuur", "🔥", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("kampvuur", R.string.screensaver_kampvuur, "🔥", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "✨",
                 achtergrondBoven = Color(0xFF331405), achtergrondOnder = Color(0xFF0D0503),
                 beweging = ScreensaverBeweging.DRIJVEN_OMHOOG, aantalElementen = 16, snelheid = 16.0
             ))),
-            ScreensaverOptie("beek", "Beek", "🏞️", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("beek", R.string.screensaver_beek, "🏞️", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "💧",
                 achtergrondBoven = Color(0xFF0F2929), achtergrondOnder = Color(0xFF050D0F),
                 beweging = ScreensaverBeweging.GLIJDEN_ZIJWAARTS, aantalElementen = 12, snelheid = 34.0
             ))),
         )
         GeluidCategorie.LICHAAM -> listOf(
-            ScreensaverOptie("hartslag", "Hartslag", "❤️", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("hartslag", R.string.screensaver_hartslag, "❤️", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "❤️",
                 achtergrondBoven = Color(0xFF330810), achtergrondOnder = Color(0xFF0D0205),
                 beweging = ScreensaverBeweging.TWINKELEN, aantalElementen = 1, snelheid = 20.0
             ))),
-            ScreensaverOptie("geborgenheid", "Geborgenheid", "🤰", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("geborgenheid", R.string.screensaver_geborgenheid, "🤰", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "🌕",
                 achtergrondBoven = Color(0xFF2E1A0D), achtergrondOnder = Color(0xFF0F0805),
                 beweging = ScreensaverBeweging.DEINEN, aantalElementen = 1, snelheid = 4.0
             ))),
-            ScreensaverOptie("ademhaling", "Ademhaling", "🫁", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("ademhaling", R.string.screensaver_ademhaling, "🫁", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "⚪️",
                 achtergrondBoven = Color(0xFF0F1F29), achtergrondOnder = Color(0xFF050A0F),
                 beweging = ScreensaverBeweging.TWINKELEN, aantalElementen = 1, snelheid = 6.0
             ))),
-            ScreensaverOptie("sussen", "Sussen", "🤫", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("sussen", R.string.screensaver_sussen, "🤫", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "💤",
                 achtergrondBoven = Color(0xFF1A1A33), achtergrondOnder = Color(0xFF080814),
                 beweging = ScreensaverBeweging.DEINEN, aantalElementen = 6, snelheid = 5.0
             ))),
-            ScreensaverOptie("luchtstroom", "Luchtstroom", "💨", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("luchtstroom", R.string.screensaver_luchtstroom, "💨", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "💨",
                 achtergrondBoven = Color(0xFF2E2E2E), achtergrondOnder = Color(0xFF0D0D0D),
                 beweging = ScreensaverBeweging.GLIJDEN_ZIJWAARTS, aantalElementen = 10, snelheid = 40.0
             ))),
         )
         GeluidCategorie.OVERIGE -> listOf(
-            ScreensaverOptie("schaapjes", "Schaapjes tellen", "🐑", ScreensaverType.SchapenTellen),
-            ScreensaverOptie("sterrenhemel", "Sterrenhemel", "✨", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("schaapjes", R.string.screensaver_schaapjes, "🐑", ScreensaverType.SchapenTellen),
+            ScreensaverOptie("sterrenhemel", R.string.screensaver_sterrenhemel, "✨", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "✨",
                 achtergrondBoven = Color(0xFF0A0A24), achtergrondOnder = Color(0xFF03030A),
                 beweging = ScreensaverBeweging.TWINKELEN, aantalElementen = 40, snelheid = 20.0
             ))),
-            ScreensaverOptie("kaarsvlam", "Kaarsvlam", "🕯️", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("kaarsvlam", R.string.screensaver_kaarsvlam, "🕯️", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "🕯️",
                 achtergrondBoven = Color(0xFF241405), achtergrondOnder = Color(0xFF080503),
                 beweging = ScreensaverBeweging.DEINEN, aantalElementen = 1, snelheid = 3.0
             ))),
-            ScreensaverOptie("treinraam", "Treinraam", "🚂", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("treinraam", R.string.screensaver_treinraam, "🚂", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "🌲",
                 achtergrondBoven = Color(0xFF0F1A29), achtergrondOnder = Color(0xFF05080D),
                 beweging = ScreensaverBeweging.GLIJDEN_ZIJWAARTS, aantalElementen = 10, snelheid = 60.0
             ))),
-            ScreensaverOptie("wolkendek", "Wolkendek", "✈️", ScreensaverType.Animatie(ScreensaverConfig(
+            ScreensaverOptie("wolkendek", R.string.screensaver_wolkendek, "✈️", ScreensaverType.Animatie(ScreensaverConfig(
                 elementEmoji = "☁️",
                 achtergrondBoven = Color(0xFF4D73A6), achtergrondOnder = Color(0xFF14243D),
                 beweging = ScreensaverBeweging.GLIJDEN_ZIJWAARTS, aantalElementen = 8, snelheid = 14.0

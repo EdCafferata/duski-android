@@ -1,61 +1,73 @@
 package info.cafferata.duski.model
 
+import androidx.annotation.StringRes
+import info.cafferata.duski.R
+
 /**
  * De geluidscategorieën, gegroepeerd zoals bij de meeste succesvolle slaap-apps
  * (Noisli, BetterSleep): losse geluidslagen die je samen kan mixen, elk met eigen volume.
  */
-enum class GeluidCategorie(val titel: String) {
-    KLEURRUIS("Ruis"),
-    NATUUR("Natuur"),
-    LICHAAM("Lichaam & baby"),
-    OVERIGE("Overige");
+enum class GeluidCategorie(@StringRes val titelRes: Int) {
+    KLEURRUIS(R.string.categorie_kleurruis),
+    NATUUR(R.string.categorie_natuur),
+    LICHAAM(R.string.categorie_lichaam),
+    OVERIGE(R.string.categorie_overige);
 
     val opties: List<GeluidOptie>
         get() = when (this) {
             KLEURRUIS -> listOf(
-                GeluidOptie("wit", "Witte ruis", "📻", GeluidType.Ruis(RuisKleur.WIT)),
-                GeluidOptie("roze", "Roze ruis", "🌸", GeluidType.Ruis(RuisKleur.ROZE)),
-                GeluidOptie("bruin", "Bruine ruis", "🟤", GeluidType.Ruis(RuisKleur.BRUIN)),
-                GeluidOptie("grijs", "Grijze ruis", "🩶", GeluidType.Ruis(RuisKleur.GRIJS)),
-                GeluidOptie("blauw", "Blauwe ruis", "🔵", GeluidType.Ruis(RuisKleur.BLAUW)),
+                GeluidOptie("wit", R.string.geluid_wit, "📻", GeluidType.Ruis(RuisKleur.WIT)),
+                GeluidOptie("roze", R.string.geluid_roze, "🌸", GeluidType.Ruis(RuisKleur.ROZE)),
+                GeluidOptie("bruin", R.string.geluid_bruin, "🟤", GeluidType.Ruis(RuisKleur.BRUIN)),
+                GeluidOptie("grijs", R.string.geluid_grijs, "🩶", GeluidType.Ruis(RuisKleur.GRIJS)),
+                GeluidOptie("blauw", R.string.geluid_blauw, "🔵", GeluidType.Ruis(RuisKleur.BLAUW)),
             )
             NATUUR -> listOf(
-                GeluidOptie("regen", "Regen", "🌧️", GeluidType.Regen),
-                GeluidOptie("golven", "Golven", "🌊", GeluidType.Golven),
-                GeluidOptie("wind", "Wind", "🍃", GeluidType.Wind),
-                GeluidOptie("vuur", "Kampvuur", "🔥", GeluidType.Vuur),
-                GeluidOptie("beek", "Beek", "🏞️", GeluidType.Beek),
+                GeluidOptie("regen", R.string.geluid_regen, "🌧️", GeluidType.Regen),
+                GeluidOptie("golven", R.string.geluid_golven, "🌊", GeluidType.Golven),
+                GeluidOptie("wind", R.string.geluid_wind, "🍃", GeluidType.Wind),
+                GeluidOptie("vuur", R.string.geluid_vuur, "🔥", GeluidType.Vuur),
+                GeluidOptie("beek", R.string.geluid_beek, "🏞️", GeluidType.Beek),
             )
             LICHAAM -> listOf(
-                GeluidOptie("hartslag", "Hartslag", "❤️", GeluidType.Hartslag),
-                GeluidOptie("baarmoeder", "Baarmoedergeluiden", "🤰", GeluidType.Baarmoeder),
-                GeluidOptie("ademhaling", "Ademhaling", "🫁", GeluidType.Ademhaling),
-                GeluidOptie("sussen", "Sussen (shhh)", "🤫", GeluidType.Sussen),
-                GeluidOptie("fohn", "Föhn", "💨", GeluidType.Fohn),
+                GeluidOptie("hartslag", R.string.geluid_hartslag, "❤️", GeluidType.Hartslag),
+                GeluidOptie("baarmoeder", R.string.geluid_baarmoeder, "🤰", GeluidType.Baarmoeder),
+                GeluidOptie("ademhaling", R.string.geluid_ademhaling, "🫁", GeluidType.Ademhaling),
+                GeluidOptie("sussen", R.string.geluid_sussen, "🤫", GeluidType.Sussen),
+                GeluidOptie("fohn", R.string.geluid_fohn, "💨", GeluidType.Fohn),
             )
             OVERIGE -> listOf(
-                GeluidOptie("klankschaal", "Klankschaal", "🎐", GeluidType.Klankschaal),
-                GeluidOptie("ventilator", "Ventilator", "🌀", GeluidType.Ventilator),
-                GeluidOptie("trein", "Trein", "🚂", GeluidType.Trein),
-                GeluidOptie("klok", "Tikkende klok", "🕰️", GeluidType.Klok),
-                GeluidOptie("vliegtuigcabine", "Vliegtuigcabine", "✈️", GeluidType.Vliegtuigcabine),
-                GeluidOptie("autorijden", "Autorijden", "🚗", GeluidType.Autorijden),
-                GeluidOptie("bachprelude", "Bach – Prelude in C", "🎹", GeluidType.BachPrelude),
-                GeluidOptie("bachair", "Bach – Air", "🎻", GeluidType.BachAir),
-                GeluidOptie("canon", "Pachelbel – Canon in D", "🎼", GeluidType.Canon),
-                GeluidOptie("gymnopedie", "Satie – Gymnopédie", "🎶", GeluidType.Gymnopedie),
-                GeluidOptie("clairdelune", "Debussy – Clair de Lune", "🌙", GeluidType.ClairDeLune),
+                GeluidOptie("klankschaal", R.string.geluid_klankschaal, "🎐", GeluidType.Klankschaal),
+                GeluidOptie("ventilator", R.string.geluid_ventilator, "🌀", GeluidType.Ventilator),
+                GeluidOptie("trein", R.string.geluid_trein, "🚂", GeluidType.Trein),
+                GeluidOptie("klok", R.string.geluid_klok, "🕰️", GeluidType.Klok),
+                GeluidOptie("vliegtuigcabine", R.string.geluid_vliegtuigcabine, "✈️", GeluidType.Vliegtuigcabine),
+                GeluidOptie("autorijden", R.string.geluid_autorijden, "🚗", GeluidType.Autorijden),
+                GeluidOptie("bachprelude", R.string.geluid_bachprelude, "🎹", GeluidType.BachPrelude),
+                GeluidOptie("bachair", R.string.geluid_bachair, "🎻", GeluidType.BachAir),
+                GeluidOptie("canon", R.string.geluid_canon, "🎼", GeluidType.Canon),
+                GeluidOptie("gymnopedie", R.string.geluid_gymnopedie, "🎶", GeluidType.Gymnopedie),
+                GeluidOptie("clairdelune", R.string.geluid_clairdelune, "🌙", GeluidType.ClairDeLune),
             )
         }
 }
 
-/** Eén losse, mixbare geluidslaag. */
+/**
+ * Eén losse geluidslaag. Per categorie is precies één geluid altijd gratis (de
+ * instap), de rest zit achter Premium — zelfde knip als de iOS-app.
+ */
 data class GeluidOptie(
     val id: String,
-    val titel: String,
+    @StringRes val titelRes: Int,
     val emoji: String,
     val type: GeluidType,
-)
+) {
+    val isPremium: Boolean get() = id !in GRATIS_GELUIDEN
+
+    companion object {
+        val GRATIS_GELUIDEN = setOf("wit", "regen", "hartslag", "klankschaal")
+    }
+}
 
 sealed class GeluidType {
     data class Ruis(val kleur: RuisKleur) : GeluidType()

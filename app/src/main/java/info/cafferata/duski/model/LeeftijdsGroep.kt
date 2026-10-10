@@ -1,15 +1,18 @@
 package info.cafferata.duski.model
 
+import androidx.annotation.StringRes
+import info.cafferata.duski.R
+
 /**
  * Leeftijdsgroepen zoals onderscheiden in AASM/WHO/Sleep Foundation-richtlijnen.
  * Bepaalt welke content en veiligheidsgrenzen (bv. volumelimiet bij Baby) worden getoond.
  */
-enum class LeeftijdsGroep(val titel: String, val emoji: String) {
-    BABY("Baby (0-1 jaar)", "👶"),
-    KIND("Kind (1-12 jaar)", "🧒"),
-    TIENER("Tiener (13-17 jaar)", "🧑"),
-    VOLWASSENE("Volwassene (18-64 jaar)", "🧑"),
-    OUDERE("Oudere (65+ jaar)", "🧓");
+enum class LeeftijdsGroep(@StringRes val titelRes: Int, val emoji: String) {
+    BABY(R.string.leeftijd_baby, "👶"),
+    KIND(R.string.leeftijd_kind, "🧒"),
+    TIENER(R.string.leeftijd_tiener, "🧑"),
+    VOLWASSENE(R.string.leeftijd_volwassene, "🧑"),
+    OUDERE(R.string.leeftijd_oudere, "🧓");
 
     /**
      * Baby-modus: onderzoek toont dat alle geteste witte-ruismachines op vol volume

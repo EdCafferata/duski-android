@@ -35,6 +35,8 @@ import info.cafferata.duski.model.GeluidCategorie
 import info.cafferata.duski.model.ScreensaverOptie
 import info.cafferata.duski.model.ScreensaverType
 import info.cafferata.duski.model.screensaverOpties
+import androidx.compose.ui.res.stringResource
+import info.cafferata.duski.R
 
 /**
  * Screensaver-kiezer: zelfde schermopbouw als het geluidsmixer-scherm
@@ -57,10 +59,10 @@ fun ScreensaverPickerScreen(onSluiten: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Screensaver") },
+                title = { Text(stringResource(R.string.screensaver)) },
                 navigationIcon = {
                     Text(
-                        "Terug",
+                        stringResource(R.string.terug),
                         modifier = Modifier
                             .padding(start = 16.dp)
                             .clickable(onClick = onSluiten),
@@ -82,7 +84,7 @@ fun ScreensaverPickerScreen(onSluiten: () -> Unit) {
             item { Spacer(Modifier.height(12.dp)) }
             items(GeluidCategorie.entries) { categorie ->
                 Column {
-                    Text(categorie.titel, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(categorie.titelRes), fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
                     Spacer(Modifier.height(12.dp))
                     Row(
                         modifier = Modifier.horizontalScroll(rememberScrollState()),
@@ -112,6 +114,6 @@ private fun ScreensaverTegel(optie: ScreensaverOptie, onKies: () -> Unit) {
     ) {
         Text(optie.emoji, fontSize = 24.sp)
         Spacer(Modifier.height(4.dp))
-        Text(optie.titel, fontSize = 11.sp, fontWeight = FontWeight.Medium, maxLines = 1)
+        Text(stringResource(optie.titelRes), fontSize = 11.sp, fontWeight = FontWeight.Medium, maxLines = 1)
     }
 }

@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import info.cafferata.duski.audio.GeluidsMixer
 import info.cafferata.duski.audio.SlaapTimer
+import androidx.compose.ui.res.stringResource
+import info.cafferata.duski.R
 
 /** Kaart onderaan het mixer-scherm waarmee je een sleeptimer instelt. */
 @Composable
@@ -37,7 +39,7 @@ fun SlaapTimerKaart(
     val resterend = timer.resterendeSeconden.value
 
     Column {
-        Text("Sleeptimer", fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
+        Text(stringResource(R.string.sleeptimer), fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
         Spacer12()
 
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -59,7 +61,7 @@ fun SlaapTimerKaart(
                         onClick = { timer.stop() },
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFE53935)),
                     ) {
-                        Text("Stop")
+                        Text(stringResource(R.string.stop))
                     }
                 }
             } else {
@@ -75,7 +77,7 @@ fun SlaapTimerKaart(
                         verticalArrangement = Arrangement.Center,
                     ) {
                         Text("$minuten", fontSize = 15.sp, fontWeight = FontWeight.Bold)
-                        Text("min", fontSize = 10.sp)
+                        Text(stringResource(R.string.minuten_kort), fontSize = 10.sp)
                     }
                 }
             }

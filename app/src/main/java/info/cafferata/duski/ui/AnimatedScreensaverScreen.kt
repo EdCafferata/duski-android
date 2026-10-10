@@ -27,6 +27,8 @@ import info.cafferata.duski.model.ScreensaverBeweging
 import info.cafferata.duski.model.ScreensaverConfig
 import kotlin.math.floor
 import kotlin.math.sin
+import androidx.compose.ui.res.stringResource
+import info.cafferata.duski.R
 
 /**
  * Herbruikbare screensaver-animatie: plaatst een aantal drijvende, vallende,
@@ -63,7 +65,7 @@ fun AnimatedScreensaverScreen(config: ScreensaverConfig, onSluiten: () -> Unit) 
         }
 
         Text(
-            "Tik om terug te gaan",
+            stringResource(R.string.tik_terug),
             modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 40.dp),
             color = Color.White.copy(alpha = 0.4f),
             fontSize = 13.sp,

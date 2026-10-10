@@ -1,10 +1,15 @@
 package info.cafferata.duski.billing
 
 /**
- * Product-ID zoals aan te maken in Play Console > Abonnementen. Moet
- * overeenkomen met de subscription-ID die daar wordt aangemaakt (30 dagen
- * gratis proefperiode via een introductory offer op het abonnement zelf).
+ * Subscription-ID's zoals aangemaakt in Play Console > Abonnementen. Jaar en
+ * maand zijn twee losse abonnementen (niet twee base plans van één product),
+ * zodat oudere app-versies — die alleen het maandabonnement opvragen — er
+ * geen last van hebben.
  */
 object AbonnementProductID {
     const val PREMIUM_MAANDELIJKS = "premium_maandelijks"
+    const val PREMIUM_JAARLIJKS = "premium_jaarlijks"
+
+    /** Volgorde = volgorde op de paywall: jaar eerst (voordeligst), dan maand. */
+    val ALLE = listOf(PREMIUM_JAARLIJKS, PREMIUM_MAANDELIJKS)
 }

@@ -19,6 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
+import androidx.compose.ui.res.stringResource
+import info.cafferata.duski.R
 
 /**
  * Onderzoek toont dat alle geteste witte-ruismachines voor baby's op vol volume
@@ -44,12 +46,12 @@ fun VeiligheidsBanner(onVerlopen: () -> Unit) {
         Icon(Icons.Default.Warning, contentDescription = null, tint = Color(0xFFFF9800))
         Column(modifier = Modifier.padding(start = 12.dp)) {
             Text(
-                "Veilig volume voor je baby",
+                stringResource(R.string.veilig_titel),
                 fontSize = 14.sp,
                 color = MaterialTheme.colorScheme.onSurface,
             )
             Text(
-                "Het volume is begrensd en het toestel hoort minstens 2 meter van de baby vandaan te staan, volgens AAP-richtlijnen.",
+                stringResource(R.string.veilig_tekst),
                 fontSize = 12.sp,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
             )

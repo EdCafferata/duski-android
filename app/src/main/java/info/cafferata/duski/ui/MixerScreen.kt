@@ -42,6 +42,15 @@ import info.cafferata.duski.billing.AbonnementManager
 import info.cafferata.duski.model.GeluidCategorie
 import info.cafferata.duski.model.GeluidOptie
 import info.cafferata.duski.model.LeeftijdsGroep
+import androidx.compose.ui.res.stringResource
+import info.cafferata.duski.R
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material3.Icon
+import androidx.compose.ui.draw.alpha
 
 /**
  * Hoofdscherm: kies losse geluidslagen en mix ze — zelfde interactiepatroon
@@ -66,14 +75,21 @@ fun MixerScreen(
         mixer.stelMaximaalVolumeIn(leeftijdsGroep.maximaalVolume)
     }
 
+    // Stopt een lopend premium-geluid zodra het abonnement niet (meer) actief is.
+    LaunchedEffect(heeftPremium, actieveOptieId) {
+        if (heeftPremium || actieveOptieId == null) return@LaunchedEffect
+        val actieve = GeluidCategorie.entries.flatMap { it.opties }.firstOrNull { it.id == actieveOptieId }
+        if (actieve?.isPremium == true) mixer.stopAlles()
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("${leeftijdsGroep.emoji} ${leeftijdsGroep.titel}", fontSize = 18.sp) },
+                title = { Text("${leeftijdsGroep.emoji} ${stringResource(leeftijdsGroep.titelRes)}", fontSize = 18.sp) },
                 navigationIcon = {
                     if (!heeftPremium) {
                         Text(
-                            "Premium",
+                            stringResource(R.string.premium),
                             modifier = Modifier
                                 .padding(start = 16.dp)
                                 .clickable(onClick = onPremium),
@@ -83,7 +99,7 @@ fun MixerScreen(
                 },
                 actions = {
                     Text(
-                        "Wijzig",
+                        stringResource(R.string.wijzig),
                         modifier = Modifier
                             .padding(end = 16.dp)
                             .clickable {
@@ -116,14 +132,19 @@ fun MixerScreen(
 
             items(GeluidCategorie.entries) { categorie ->
                 Column {
-                    Text(categorie.titel, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(categorie.titelRes), fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
                     Spacer(Modifier.height(12.dp))
                     Row(
                         modifier = Modifier.horizontalScroll(rememberScrollState()),
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
                         categorie.opties.forEach { optie ->
-                            GeluidTegel(optie = optie, mixer = mixer)
+                            GeluidTegel(
+                                optie = optie,
+                                mixer = mixer,
+                                vergrendeld = optie.isPremium && !heeftPremium,
+                                onVergrendeldTikken = onPremium,
+                            )
                         }
                     }
                 }
@@ -143,10 +164,18 @@ fun MixerScreen(
     }
 }
 
-/** Eén tegel voor een geluidslaag: aan/uit + volumeslider zodra actief. */
+/**
+ * Eén tegel voor een geluidslaag: aan/uit + volumeslider zodra actief.
+ * Premium-geluiden tonen een slotje en openen de paywall in plaats van te spelen.
+ */
 @Composable
-private fun GeluidTegel(optie: GeluidOptie, mixer: GeluidsMixer) {
-    val actief = mixer.isActief(optie)
+private fun GeluidTegel(
+    optie: GeluidOptie,
+    mixer: GeluidsMixer,
+    vergrendeld: Boolean,
+    onVergrendeldTikken: () -> Unit,
+) {
+    val actief = !vergrendeld && mixer.isActief(optie)
     val breedte = 104.dp
 
     Column(
@@ -157,13 +186,24 @@ private fun GeluidTegel(optie: GeluidOptie, mixer: GeluidsMixer) {
                 else MaterialTheme.colorScheme.surface,
                 RoundedCornerShape(14.dp),
             )
-            .clickable { mixer.schakel(optie) }
+            .clickable { if (vergrendeld) onVergrendeldTikken() else mixer.schakel(optie) }
+            .alpha(if (vergrendeld) 0.6f else 1f)
             .padding(horizontal = 4.dp, vertical = 10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(optie.emoji, fontSize = 24.sp)
+        Box(contentAlignment = Alignment.TopEnd) {
+            Text(optie.emoji, fontSize = 24.sp)
+            if (vergrendeld) {
+                Icon(
+                    Icons.Default.Lock,
+                    contentDescription = null,
+                    modifier = Modifier.size(11.dp).offset(x = 9.dp, y = (-3).dp),
+                    tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                )
+            }
+        }
         Spacer(Modifier.height(4.dp))
-        Text(optie.titel, fontSize = 11.sp, fontWeight = FontWeight.Medium, maxLines = 1)
+        Text(stringResource(optie.titelRes), fontSize = 11.sp, fontWeight = FontWeight.Medium, maxLines = 1)
 
         if (actief) {
             val volume = mixer.volumes[optie.id] ?: 0.7f

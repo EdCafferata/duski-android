@@ -12,17 +12,16 @@ import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.QueryProductDetailsParams
 import com.android.billingclient.api.QueryPurchasesParams
-import com.android.billingclient.api.ProductDetails
 
 /**
  * Play Billing-wrapper (Android-equivalent van de StoreKit 2 AbonnementManager
  * op iOS): laadt het abonnement, koopt het, en houdt bij of Premium actief is.
- * 30 dagen gratis via een introductory offer op het abonnement zelf
- * (geconfigureerd in Play Console > Abonnementen), daarna de ingestelde prijs.
+ * Jaar- en maandabonnement, elk met 30 dagen gratis via een aanbieding in
+ * Play Console > Abonnementen, daarna de ingestelde prijs per land.
  */
 class AbonnementManager(context: Context) : PurchasesUpdatedListener {
-    private val _producten = mutableStateOf<List<ProductDetails>>(emptyList())
-    val producten: State<List<ProductDetails>> = _producten
+    private val _producten = mutableStateOf<List<Aanbieding>>(emptyList())
+    val producten: State<List<Aanbieding>> = _producten
 
     private val _heeftPremium = mutableStateOf(false)
     val heeftPremium: State<Boolean> = _heeftPremium
@@ -57,30 +56,33 @@ class AbonnementManager(context: Context) : PurchasesUpdatedListener {
     }
 
     fun laadProducten() {
-        val product = QueryProductDetailsParams.Product.newBuilder()
-            .setProductId(AbonnementProductID.PREMIUM_MAANDELIJKS)
-            .setProductType(BillingClient.ProductType.SUBS)
-            .build()
+        val producten = AbonnementProductID.ALLE.map { id ->
+            QueryProductDetailsParams.Product.newBuilder()
+                .setProductId(id)
+                .setProductType(BillingClient.ProductType.SUBS)
+                .build()
+        }
 
         val params = QueryProductDetailsParams.newBuilder()
-            .setProductList(listOf(product))
+            .setProductList(producten)
             .build()
 
         billingClient.queryProductDetailsAsync(params) { result, queryProductDetailsResult ->
             if (result.responseCode == BillingClient.BillingResponseCode.OK) {
+                _laadFout.value = null
                 _producten.value = queryProductDetailsResult.productDetailsList
+                    .mapNotNull { it.besteAanbieding() }
+                    .sortedBy { AbonnementProductID.ALLE.indexOf(it.product.productId) }
             } else {
                 _laadFout.value = result.debugMessage
             }
         }
     }
 
-    fun koop(activity: Activity, product: ProductDetails) {
-        val aanbiedingToken = product.subscriptionOfferDetails?.firstOrNull()?.offerToken ?: return
-
+    fun koop(activity: Activity, aanbieding: Aanbieding) {
         val productParams = BillingFlowParams.ProductDetailsParams.newBuilder()
-            .setProductDetails(product)
-            .setOfferToken(aanbiedingToken)
+            .setProductDetails(aanbieding.product)
+            .setOfferToken(aanbieding.offerToken)
             .build()
 
         val flowParams = BillingFlowParams.newBuilder()
@@ -101,7 +103,7 @@ class AbonnementManager(context: Context) : PurchasesUpdatedListener {
                 return@queryPurchasesAsync
             }
             val actief = purchases.any { purchase ->
-                purchase.products.contains(AbonnementProductID.PREMIUM_MAANDELIJKS) &&
+                purchase.products.any { it in AbonnementProductID.ALLE } &&
                     purchase.purchaseState == Purchase.PurchaseState.PURCHASED
             }
             _heeftPremium.value = actief

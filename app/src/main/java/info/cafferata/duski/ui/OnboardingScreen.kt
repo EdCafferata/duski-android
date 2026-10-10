@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import info.cafferata.duski.R
 import info.cafferata.duski.model.LeeftijdsGroep
+import androidx.compose.ui.res.stringResource
 
 /**
  * Eerste scherm: kies je leeftijdsgroep. Bepaalt content en veiligheidsgrenzen
@@ -53,7 +54,7 @@ fun OnboardingScreen(onGekozen: (LeeftijdsGroep) -> Unit) {
         Text("Duski", fontSize = 34.sp, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(4.dp))
         Text(
-            "Voor wie is dit toestel?",
+            stringResource(R.string.voor_wie),
             fontSize = 20.sp,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
         )
@@ -73,7 +74,7 @@ fun OnboardingScreen(onGekozen: (LeeftijdsGroep) -> Unit) {
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Text(groep.emoji, fontSize = 22.sp)
-                        Text(groep.titel, fontSize = 17.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(start = 12.dp))
+                        Text(stringResource(groep.titelRes), fontSize = 17.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(start = 12.dp))
                     }
                 }
             }
