@@ -17,10 +17,12 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file(project.findProperty("DUSKI_STORE_FILE") as String)
-            storePassword = project.findProperty("DUSKI_STORE_PASSWORD") as String
-            keyAlias = project.findProperty("DUSKI_KEY_ALIAS") as String
-            keyPassword = project.findProperty("DUSKI_KEY_PASSWORD") as String
+            if (project.hasProperty("DUSKI_STORE_FILE")) {
+                storeFile = file(project.findProperty("DUSKI_STORE_FILE") as String)
+                storePassword = project.findProperty("DUSKI_STORE_PASSWORD") as String
+                keyAlias = project.findProperty("DUSKI_KEY_ALIAS") as String
+                keyPassword = project.findProperty("DUSKI_KEY_PASSWORD") as String
+            }
         }
     }
 
