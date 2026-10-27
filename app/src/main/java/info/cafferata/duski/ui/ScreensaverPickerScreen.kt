@@ -1,5 +1,6 @@
 package info.cafferata.duski.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
@@ -47,6 +48,9 @@ import info.cafferata.duski.R
 @Composable
 fun ScreensaverPickerScreen(onSluiten: () -> Unit) {
     var gekozenOptie by remember { mutableStateOf<ScreensaverOptie?>(null) }
+
+    // Terug vanuit een draaiende screensaver → terug naar de kiezer (niet de app uit).
+    BackHandler(enabled = gekozenOptie != null) { gekozenOptie = null }
 
     if (gekozenOptie != null) {
         when (val type = gekozenOptie!!.type) {
