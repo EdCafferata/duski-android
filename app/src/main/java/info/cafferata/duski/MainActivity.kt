@@ -1,6 +1,15 @@
 package info.cafferata.duski
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.core.content.ContextCompat
+import info.cafferata.duski.audio.AfspeelService
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
@@ -78,6 +87,28 @@ private fun DuskiApp() {
     val mixer = remember { GeluidsMixer() }
     val slaapTimer = remember { SlaapTimer(scope) }
     val abonnement = remember { AbonnementManager(context) }
+
+    // Zolang er geluid speelt draait de foreground service, zodat Android het geluid
+    // niet stopt bij een vergrendeld scherm (#6). De meldingsknop "Stop" en het
+    // wegvegen van de app stoppen mixer + timer.
+    val actieveOptieId = mixer.actieveOptieId.value
+    val vraagMeldingen = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { }
+    DisposableEffect(mixer) {
+        AfspeelService.bijStoppen = { mixer.stopAlles(); slaapTimer.stop() }
+        onDispose { AfspeelService.bijStoppen = null }
+    }
+    LaunchedEffect(actieveOptieId) {
+        if (actieveOptieId != null) {
+            if (Build.VERSION.SDK_INT >= 33 &&
+                ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+            ) {
+                vraagMeldingen.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+            AfspeelService.start(context)
+        } else {
+            AfspeelService.stop(context)
+        }
+    }
 
     when {
         toontScreensaver -> ScreensaverPickerScreen(onSluiten = { toontScreensaver = false })

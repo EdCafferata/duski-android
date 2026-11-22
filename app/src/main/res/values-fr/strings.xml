@@ -83,4 +83,8 @@
     <string name="voordeel_geen_account">Sans compte, sans publicité</string>
     <string name="voordeligst">Meilleure offre</string>
     <string name="wijzig">Modifier</string>
+    <string name="altijd_aan">Toujours actif</string>
+    <string name="melding_kanaal">Lecture</string>
+    <string name="melding_titel">Duski est en lecture</string>
+    <string name="melding_tekst">Touchez pour ouvrir l\'app</string>
 </resources>

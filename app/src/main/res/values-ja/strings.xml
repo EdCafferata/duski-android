@@ -83,4 +83,8 @@
     <string name="voordeel_geen_account">アカウント不要、広告なし</string>
     <string name="voordeligst">いちばんお得</string>
     <string name="wijzig">変更</string>
+    <string name="altijd_aan">常にオン</string>
+    <string name="melding_kanaal">再生</string>
+    <string name="melding_titel">Duskiを再生中</string>
+    <string name="melding_tekst">タップしてアプリを開く</string>
 </resources>

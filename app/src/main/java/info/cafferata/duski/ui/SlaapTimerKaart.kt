@@ -5,6 +5,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -37,6 +39,7 @@ fun SlaapTimerKaart(
 ) {
     val opties = listOf(15, 30, 45, 60, 90)
     val resterend = timer.resterendeSeconden.value
+    val altijdAan = timer.isAltijdAan.value
 
     Column {
         Text(stringResource(R.string.sleeptimer), fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
@@ -47,7 +50,7 @@ fun SlaapTimerKaart(
                 ScreensaverKnop(onScreensaver)
             }
 
-            if (resterend != null) {
+            if (resterend != null || altijdAan) {
                 Row(
                     modifier = Modifier
                         .weight(1f)
@@ -56,7 +59,10 @@ fun SlaapTimerKaart(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text(tijdText(resterend), fontSize = 22.sp, fontWeight = FontWeight.Bold)
+                    Text(
+                        if (resterend != null) tijdText(resterend) else "∞  " + stringResource(R.string.altijd_aan),
+                        fontSize = 22.sp, fontWeight = FontWeight.Bold,
+                    )
                     Button(
                         onClick = { timer.stop() },
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFE53935)),
@@ -68,7 +74,8 @@ fun SlaapTimerKaart(
                 opties.forEach { minuten ->
                     Column(
                         modifier = Modifier
-                            .size(60.dp)
+                            .weight(1f, fill = false)
+                            .rondeKnop()
                             .background(Color(0xFF3A3A4A), CircleShape)
                             .clickable {
                                 actieveOptieId?.let { timer.start(minuten, mixer, it) }
@@ -82,14 +89,33 @@ fun SlaapTimerKaart(
                 }
             }
         }
+
+        // Eigen rij: naast de 5 tijdknoppen en de screensaver-knop past op smalle
+        // telefoons geen extra ronde knop meer.
+        if (resterend == null && !altijdAan) {
+            Spacer12()
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color(0xFF3A3A4A), RoundedCornerShape(50))
+                    .clickable { if (actieveOptieId != null) timer.startAltijdAan() }
+                    .padding(vertical = 12.dp),
+                horizontalArrangement = Arrangement.Center,
+            ) {
+                Text("∞  " + stringResource(R.string.altijd_aan), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+            }
+        }
     }
 }
+
+/** Ronde knop die meekrimpt (44–60 dp) zodat 6 knoppen ook op smalle telefoons passen. */
+private fun Modifier.rondeKnop(): Modifier = this.widthIn(min = 44.dp, max = 60.dp).aspectRatio(1f)
 
 @Composable
 private fun ScreensaverKnop(onClick: () -> Unit) {
     Column(
         modifier = Modifier
-            .size(60.dp)
+            .rondeKnop()
             .background(Color(0xFF6366F1).copy(alpha = 0.18f), CircleShape)
             .clickable(onClick = onClick),
         horizontalAlignment = Alignment.CenterHorizontally,

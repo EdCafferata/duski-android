@@ -16,11 +16,20 @@ class SlaapTimer(private val scope: CoroutineScope) {
     private val _resterendeSeconden = mutableStateOf<Int?>(null)
     val resterendeSeconden: State<Int?> = _resterendeSeconden
 
+    /** "Altijd aan": geen aftelling, geen uitfaden, geen automatische stop (#5). */
+    private val _isAltijdAan = mutableStateOf(false)
+    val isAltijdAan: State<Boolean> = _isAltijdAan
+
     private var job: Job? = null
     private var volumeBijStartUitfaden: Float = 0f
     private val uitfadeDuur = 30
 
-    val isActief: Boolean get() = _resterendeSeconden.value != null
+    val isActief: Boolean get() = _resterendeSeconden.value != null || _isAltijdAan.value
+
+    fun startAltijdAan() {
+        stop()
+        _isAltijdAan.value = true
+    }
 
     fun start(minuten: Int, mixer: GeluidsMixer, optieId: String) {
         stop()
@@ -37,6 +46,7 @@ class SlaapTimer(private val scope: CoroutineScope) {
         job?.cancel()
         job = null
         _resterendeSeconden.value = null
+        _isAltijdAan.value = false
     }
 
     private fun tik(mixer: GeluidsMixer, optieId: String) {

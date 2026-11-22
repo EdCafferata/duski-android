@@ -83,4 +83,8 @@
     <string name="voordeel_geen_account">Nessun account, nessuna pubblicità</string>
     <string name="voordeligst">Più conveniente</string>
     <string name="wijzig">Modifica</string>
+    <string name="altijd_aan">Sempre attivo</string>
+    <string name="melding_kanaal">Riproduzione</string>
+    <string name="melding_titel">Duski è in riproduzione</string>
+    <string name="melding_tekst">Tocca per aprire l\'app</string>
 </resources>

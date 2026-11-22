@@ -83,4 +83,8 @@
     <string name="voordeel_geen_account">Kein Konto, keine Werbung</string>
     <string name="voordeligst">Bester Preis</string>
     <string name="wijzig">Ändern</string>
+    <string name="altijd_aan">Immer an</string>
+    <string name="melding_kanaal">Wiedergabe</string>
+    <string name="melding_titel">Duski spielt</string>
+    <string name="melding_tekst">Tippe, um die App zu öffnen</string>
 </resources>
