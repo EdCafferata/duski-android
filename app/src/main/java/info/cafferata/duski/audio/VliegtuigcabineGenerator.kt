@@ -18,6 +18,7 @@ class VliegtuigcabineGenerator : GeluidGenerator {
         laagdoorlaatToestand += 0.015f * (wit - laagdoorlaatToestand)
 
         faseTrilling += (1.0 / sampleRate).toFloat() * 0.03f
+        if (faseTrilling >= 1f) faseTrilling -= 1f // fase binnen 0..<1: een eindeloos oplopende Float verliest na enkele minuten precisie
         val trilling = 0.95f + 0.05f * sin(faseTrilling * 2f * PI.toFloat())
 
         return laagdoorlaatToestand * 2.2f * trilling

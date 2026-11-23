@@ -29,6 +29,7 @@ class RegenGenerator : GeluidGenerator {
 
         // Trage amplitude-ademhaling (regenbuien-gevoel).
         faseAdemhaling += (1.0 / sampleRate).toFloat() * 0.07f
+        if (faseAdemhaling >= 1f) faseAdemhaling -= 1f // fase binnen 0..<1: een eindeloos oplopende Float verliest na enkele minuten precisie
         val ademhaling = 0.75f + 0.25f * sin(faseAdemhaling * 2f * PI.toFloat())
 
         return (hoogdoorlaat * 0.5f + druppels) * ademhaling * 0.5f

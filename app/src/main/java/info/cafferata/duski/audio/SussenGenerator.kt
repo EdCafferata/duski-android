@@ -19,6 +19,7 @@ class SussenGenerator : GeluidGenerator {
         val hoog = wit - hoogToestand
 
         faseRitme += (1.0 / sampleRate).toFloat() * 0.5f
+        if (faseRitme >= 1f) faseRitme -= 1f // fase binnen 0..<1: een eindeloos oplopende Float verliest na enkele minuten precisie
         val ritme = 0.6f + 0.4f * sin(faseRitme * 2f * PI.toFloat())
 
         return hoog * ritme * 0.55f

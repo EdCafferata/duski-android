@@ -16,6 +16,7 @@ class AutorijdenGenerator : GeluidGenerator {
 
     override fun volgendeSample(sampleRate: Double): Float {
         faseMotor += (1.0 / sampleRate).toFloat() * 45f
+        if (faseMotor >= 1f) faseMotor -= 1f // fase binnen 0..<1: een eindeloos oplopende Float verliest na enkele minuten precisie
         val motor = sin(faseMotor * 2f * PI.toFloat()) * 0.2f
 
         val wit = Random.nextFloat() * 2f - 1f

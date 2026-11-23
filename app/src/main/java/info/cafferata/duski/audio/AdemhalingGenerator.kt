@@ -20,6 +20,7 @@ class AdemhalingGenerator : GeluidGenerator {
         laagdoorlaatToestand += 0.08f * (wit - laagdoorlaatToestand)
 
         faseCyclus += (1.0 / sampleRate).toFloat() * 0.17f
+        if (faseCyclus >= 1f) faseCyclus -= 1f // fase binnen 0..<1: een eindeloos oplopende Float verliest na enkele minuten precisie
         val raw = 0.5f + 0.5f * sin(faseCyclus * 2f * PI.toFloat())
         val envelope = raw.toDouble().pow(1.4).toFloat()
 
