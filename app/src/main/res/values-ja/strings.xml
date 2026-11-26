@@ -79,7 +79,7 @@
     <string name="verlenging_jaar">サブスクリプションは、現在の期間が終了する前にGoogle Playの「定期購入」で解約しない限り、毎年%1$sで自動更新されます。</string>
     <string name="verlenging_maand">サブスクリプションは、現在の期間が終了する前にGoogle Playの「定期購入」で解約しない限り、毎月%1$sで自動更新されます。</string>
     <string name="voor_wie">このデバイスは誰が使いますか？</string>
-    <string name="voordeel_alle">全26種類のサウンド</string>
+    <string name="voordeel_alle">全29種類のサウンド</string>
     <string name="voordeel_geen_account">アカウント不要、広告なし</string>
     <string name="voordeligst">いちばんお得</string>
     <string name="wijzig">変更</string>
@@ -87,4 +87,21 @@
     <string name="melding_kanaal">再生</string>
     <string name="melding_titel">Duskiを再生中</string>
     <string name="melding_tekst">タップしてアプリを開く</string>
+    <string name="geluid_onweer">雷雨</string>
+    <string name="geluid_stofzuiger">掃除機</string>
+    <string name="geluid_speeldoos">オルゴールの子守唄</string>
+    <string name="voorjou">あなたに</string>
+    <string name="gratis">無料</string>
+    <string name="voorjou_speel">%1$sを再生</string>
+    <string name="voorjou_stop">%1$sを停止</string>
+    <string name="voorjou_baby_titel">胎内音としーっ</string>
+    <string name="voorjou_baby_uitleg">お腹の中のような音。新生児を落ち着かせます。</string>
+    <string name="voorjou_kind_titel">オルゴールと静かな雨</string>
+    <string name="voorjou_kind_uitleg">おなじみの子守唄をオルゴールで。背景に雨の音。</string>
+    <string name="voorjou_tiener_titel">ブラウンノイズと雨</string>
+    <string name="voorjou_tiener_uitleg">深く穏やか。集中したいときにも。</string>
+    <string name="voorjou_volwassene_titel">遠くの雷雨</string>
+    <string name="voorjou_volwassene_uitleg">雨と遠くの穏やかな雷鳴。最も人気のある睡眠音のひとつ。</string>
+    <string name="voorjou_oudere_titel">月の光と静かな雨</string>
+    <string name="voorjou_oudere_uitleg">ゆったりしたクラシック音楽は、多くの高齢者の眠りを助けます。</string>
 </resources>

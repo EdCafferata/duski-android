@@ -79,7 +79,7 @@
     <string name="verlenging_jaar">Het abonnement wordt automatisch elk jaar verlengd tegen %1$s, tenzij je het vóór het einde van de lopende periode opzegt via Abonnementen in Google Play.</string>
     <string name="verlenging_maand">Het abonnement wordt automatisch elke maand verlengd tegen %1$s, tenzij je het vóór het einde van de lopende periode opzegt via Abonnementen in Google Play.</string>
     <string name="voor_wie">Voor wie is dit toestel?</string>
-    <string name="voordeel_alle">Alle 26 geluiden</string>
+    <string name="voordeel_alle">Alle 29 geluiden</string>
     <string name="voordeel_geen_account">Geen account, geen advertenties</string>
     <string name="voordeligst">Voordeligst</string>
     <string name="wijzig">Wijzig</string>
@@ -87,4 +87,21 @@
     <string name="melding_kanaal">Afspelen</string>
     <string name="melding_titel">Duski speelt</string>
     <string name="melding_tekst">Tik om de app te openen</string>
+    <string name="geluid_onweer">Onweer</string>
+    <string name="geluid_stofzuiger">Stofzuiger</string>
+    <string name="geluid_speeldoos">Speeldoos-slaapliedjes</string>
+    <string name="voorjou">Voor jou</string>
+    <string name="gratis">Gratis</string>
+    <string name="voorjou_speel">Speel %1$s</string>
+    <string name="voorjou_stop">Stop %1$s</string>
+    <string name="voorjou_baby_titel">Baarmoeder en sussen</string>
+    <string name="voorjou_baby_uitleg">Klinkt zoals in de buik. Rustgevend voor pasgeborenen.</string>
+    <string name="voorjou_kind_titel">Speeldoos en zachte regen</string>
+    <string name="voorjou_kind_uitleg">Bekende slaapliedjes op een speeldoos, met regen op de achtergrond.</string>
+    <string name="voorjou_tiener_titel">Bruine ruis en regen</string>
+    <string name="voorjou_tiener_uitleg">Diep en rustig. Ook fijn om je te concentreren.</string>
+    <string name="voorjou_volwassene_titel">Onweer in de verte</string>
+    <string name="voorjou_volwassene_uitleg">Regen met af en toe zacht gerommel. Een van de meest gekozen slaapgeluiden.</string>
+    <string name="voorjou_oudere_titel">Clair de Lune en zachte regen</string>
+    <string name="voorjou_oudere_uitleg">Langzame klassieke muziek helpt veel ouderen beter te slapen.</string>
 </resources>

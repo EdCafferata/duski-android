@@ -35,5 +35,8 @@ object GeluidGeneratorFabriek {
         GeluidType.Canon -> CanonGenerator()
         GeluidType.Gymnopedie -> GymnopedieGenerator()
         GeluidType.ClairDeLune -> ClairDeLuneGenerator()
+        GeluidType.Onweer -> OnweerGenerator()
+        GeluidType.Stofzuiger -> StofzuigerGenerator()
+        GeluidType.Speeldoos -> SpeeldoosGenerator()
     }
 }

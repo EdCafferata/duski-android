@@ -28,6 +28,7 @@ enum class GeluidCategorie(@StringRes val titelRes: Int) {
                 GeluidOptie("wind", R.string.geluid_wind, "🍃", GeluidType.Wind),
                 GeluidOptie("vuur", R.string.geluid_vuur, "🔥", GeluidType.Vuur),
                 GeluidOptie("beek", R.string.geluid_beek, "🏞️", GeluidType.Beek),
+                GeluidOptie("onweer", R.string.geluid_onweer, "⛈️", GeluidType.Onweer),
             )
             LICHAAM -> listOf(
                 GeluidOptie("hartslag", R.string.geluid_hartslag, "❤️", GeluidType.Hartslag),
@@ -35,6 +36,7 @@ enum class GeluidCategorie(@StringRes val titelRes: Int) {
                 GeluidOptie("ademhaling", R.string.geluid_ademhaling, "🫁", GeluidType.Ademhaling),
                 GeluidOptie("sussen", R.string.geluid_sussen, "🤫", GeluidType.Sussen),
                 GeluidOptie("fohn", R.string.geluid_fohn, "💨", GeluidType.Fohn),
+                GeluidOptie("stofzuiger", R.string.geluid_stofzuiger, "🧹", GeluidType.Stofzuiger),
             )
             OVERIGE -> listOf(
                 GeluidOptie("klankschaal", R.string.geluid_klankschaal, "🎐", GeluidType.Klankschaal),
@@ -43,6 +45,7 @@ enum class GeluidCategorie(@StringRes val titelRes: Int) {
                 GeluidOptie("klok", R.string.geluid_klok, "🕰️", GeluidType.Klok),
                 GeluidOptie("vliegtuigcabine", R.string.geluid_vliegtuigcabine, "✈️", GeluidType.Vliegtuigcabine),
                 GeluidOptie("autorijden", R.string.geluid_autorijden, "🚗", GeluidType.Autorijden),
+                GeluidOptie("speeldoos", R.string.geluid_speeldoos, "🎠", GeluidType.Speeldoos),
                 GeluidOptie("bachprelude", R.string.geluid_bachprelude, "🎹", GeluidType.BachPrelude),
                 GeluidOptie("bachair", R.string.geluid_bachair, "🎻", GeluidType.BachAir),
                 GeluidOptie("canon", R.string.geluid_canon, "🎼", GeluidType.Canon),
@@ -50,6 +53,11 @@ enum class GeluidCategorie(@StringRes val titelRes: Int) {
                 GeluidOptie("clairdelune", R.string.geluid_clairdelune, "🌙", GeluidType.ClairDeLune),
             )
         }
+
+    companion object {
+        val alleOpties: List<GeluidOptie> get() = entries.flatMap { it.opties }
+        fun optie(id: String): GeluidOptie? = alleOpties.firstOrNull { it.id == id }
+    }
 }
 
 /**
@@ -92,6 +100,9 @@ sealed class GeluidType {
     object Canon : GeluidType()
     object Gymnopedie : GeluidType()
     object ClairDeLune : GeluidType()
+    object Onweer : GeluidType()
+    object Stofzuiger : GeluidType()
+    object Speeldoos : GeluidType()
 }
 
 enum class RuisKleur { WIT, ROZE, BRUIN, GRIJS, BLAUW }

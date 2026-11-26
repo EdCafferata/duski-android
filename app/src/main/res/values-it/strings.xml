@@ -79,7 +79,7 @@
     <string name="verlenging_jaar">L’abbonamento si rinnova automaticamente ogni anno a %1$s, salvo disdetta prima della fine del periodo in corso in Abbonamenti su Google Play.</string>
     <string name="verlenging_maand">L’abbonamento si rinnova automaticamente ogni mese a %1$s, salvo disdetta prima della fine del periodo in corso in Abbonamenti su Google Play.</string>
     <string name="voor_wie">Per chi è questo dispositivo?</string>
-    <string name="voordeel_alle">Tutti i 26 suoni</string>
+    <string name="voordeel_alle">Tutti i 29 suoni</string>
     <string name="voordeel_geen_account">Nessun account, nessuna pubblicità</string>
     <string name="voordeligst">Più conveniente</string>
     <string name="wijzig">Modifica</string>
@@ -87,4 +87,21 @@
     <string name="melding_kanaal">Riproduzione</string>
     <string name="melding_titel">Duski è in riproduzione</string>
     <string name="melding_tekst">Tocca per aprire l\'app</string>
+    <string name="geluid_onweer">Temporale</string>
+    <string name="geluid_stofzuiger">Aspirapolvere</string>
+    <string name="geluid_speeldoos">Ninne nanne del carillon</string>
+    <string name="voorjou">Per te</string>
+    <string name="gratis">Gratis</string>
+    <string name="voorjou_speel">Riproduci %1$s</string>
+    <string name="voorjou_stop">Ferma %1$s</string>
+    <string name="voorjou_baby_titel">Grembo e shhh</string>
+    <string name="voorjou_baby_uitleg">Come nella pancia. Rilassante per i neonati.</string>
+    <string name="voorjou_kind_titel">Carillon e pioggia leggera</string>
+    <string name="voorjou_kind_uitleg">Ninne nanne famose sul carillon, con la pioggia in sottofondo.</string>
+    <string name="voorjou_tiener_titel">Rumore marrone e pioggia</string>
+    <string name="voorjou_tiener_uitleg">Profondo e calmo. Ottimo anche per concentrarsi.</string>
+    <string name="voorjou_volwassene_titel">Temporale in lontananza</string>
+    <string name="voorjou_volwassene_uitleg">Pioggia con lievi tuoni lontani. Uno dei suoni per dormire più scelti.</string>
+    <string name="voorjou_oudere_titel">Clair de Lune e pioggia leggera</string>
+    <string name="voorjou_oudere_uitleg">La musica classica lenta aiuta molti anziani a dormire meglio.</string>
 </resources>

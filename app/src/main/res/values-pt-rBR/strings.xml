@@ -79,7 +79,7 @@
     <string name="verlenging_jaar">A assinatura é renovada automaticamente todo ano por %1$s, a menos que você a cancele antes do fim do período atual em Assinaturas no Google Play.</string>
     <string name="verlenging_maand">A assinatura é renovada automaticamente todo mês por %1$s, a menos que você a cancele antes do fim do período atual em Assinaturas no Google Play.</string>
     <string name="voor_wie">Para quem é este aparelho?</string>
-    <string name="voordeel_alle">Todos os 26 sons</string>
+    <string name="voordeel_alle">Todos os 29 sons</string>
     <string name="voordeel_geen_account">Sem conta, sem anúncios</string>
     <string name="voordeligst">Melhor preço</string>
     <string name="wijzig">Alterar</string>
@@ -87,4 +87,21 @@
     <string name="melding_kanaal">Reprodução</string>
     <string name="melding_titel">Duski está tocando</string>
     <string name="melding_tekst">Toque para abrir o app</string>
+    <string name="geluid_onweer">Tempestade</string>
+    <string name="geluid_stofzuiger">Aspirador</string>
+    <string name="geluid_speeldoos">Canções de ninar de caixinha</string>
+    <string name="voorjou">Para você</string>
+    <string name="gratis">Grátis</string>
+    <string name="voorjou_speel">Tocar %1$s</string>
+    <string name="voorjou_stop">Parar %1$s</string>
+    <string name="voorjou_baby_titel">Útero e shhh</string>
+    <string name="voorjou_baby_uitleg">Soa como no útero. Acalma recém-nascidos.</string>
+    <string name="voorjou_kind_titel">Caixinha de música e chuva suave</string>
+    <string name="voorjou_kind_uitleg">Canções de ninar conhecidas na caixinha, com chuva ao fundo.</string>
+    <string name="voorjou_tiener_titel">Ruído marrom e chuva</string>
+    <string name="voorjou_tiener_uitleg">Profundo e calmo. Ótimo também para se concentrar.</string>
+    <string name="voorjou_volwassene_titel">Tempestade ao longe</string>
+    <string name="voorjou_volwassene_uitleg">Chuva com trovões suaves ao longe. Um dos sons para dormir mais escolhidos.</string>
+    <string name="voorjou_oudere_titel">Clair de Lune e chuva suave</string>
+    <string name="voorjou_oudere_uitleg">Música clássica lenta ajuda muitos idosos a dormir melhor.</string>
 </resources>

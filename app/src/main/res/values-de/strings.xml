@@ -79,7 +79,7 @@
     <string name="verlenging_jaar">Das Abo verlängert sich automatisch jedes Jahr zum Preis von %1$s, sofern du es nicht vor Ablauf des laufenden Zeitraums unter „Abos“ in Google Play kündigst.</string>
     <string name="verlenging_maand">Das Abo verlängert sich automatisch jeden Monat zum Preis von %1$s, sofern du es nicht vor Ablauf des laufenden Zeitraums unter „Abos“ in Google Play kündigst.</string>
     <string name="voor_wie">Für wen ist dieses Gerät?</string>
-    <string name="voordeel_alle">Alle 26 Klänge</string>
+    <string name="voordeel_alle">Alle 29 Klänge</string>
     <string name="voordeel_geen_account">Kein Konto, keine Werbung</string>
     <string name="voordeligst">Bester Preis</string>
     <string name="wijzig">Ändern</string>
@@ -87,4 +87,21 @@
     <string name="melding_kanaal">Wiedergabe</string>
     <string name="melding_titel">Duski spielt</string>
     <string name="melding_tekst">Tippe, um die App zu öffnen</string>
+    <string name="geluid_onweer">Gewitter</string>
+    <string name="geluid_stofzuiger">Staubsauger</string>
+    <string name="geluid_speeldoos">Spieluhr-Schlaflieder</string>
+    <string name="voorjou">Für dich</string>
+    <string name="gratis">Gratis</string>
+    <string name="voorjou_speel">%1$s abspielen</string>
+    <string name="voorjou_stop">%1$s stoppen</string>
+    <string name="voorjou_baby_titel">Mutterleib und Pschhh</string>
+    <string name="voorjou_baby_uitleg">Klingt wie im Bauch. Beruhigend für Neugeborene.</string>
+    <string name="voorjou_kind_titel">Spieluhr und sanfter Regen</string>
+    <string name="voorjou_kind_uitleg">Bekannte Schlaflieder auf der Spieluhr, mit Regen im Hintergrund.</string>
+    <string name="voorjou_tiener_titel">Braunes Rauschen und Regen</string>
+    <string name="voorjou_tiener_uitleg">Tief und ruhig. Auch gut zum Konzentrieren.</string>
+    <string name="voorjou_volwassene_titel">Fernes Gewitter</string>
+    <string name="voorjou_volwassene_uitleg">Regen mit leisem Grollen. Eines der beliebtesten Schlafgeräusche.</string>
+    <string name="voorjou_oudere_titel">Clair de Lune und sanfter Regen</string>
+    <string name="voorjou_oudere_uitleg">Langsame klassische Musik hilft vielen älteren Menschen, besser zu schlafen.</string>
 </resources>

@@ -79,7 +79,7 @@
     <string name="verlenging_jaar">L’abonnement est renouvelé automatiquement chaque année au prix de %1$s, sauf si vous l’annulez avant la fin de la période en cours dans Abonnements sur Google Play.</string>
     <string name="verlenging_maand">L’abonnement est renouvelé automatiquement chaque mois au prix de %1$s, sauf si vous l’annulez avant la fin de la période en cours dans Abonnements sur Google Play.</string>
     <string name="voor_wie">Pour qui est cet appareil ?</string>
-    <string name="voordeel_alle">Les 26 sons</string>
+    <string name="voordeel_alle">Les 29 sons</string>
     <string name="voordeel_geen_account">Sans compte, sans publicité</string>
     <string name="voordeligst">Meilleure offre</string>
     <string name="wijzig">Modifier</string>
@@ -87,4 +87,21 @@
     <string name="melding_kanaal">Lecture</string>
     <string name="melding_titel">Duski est en lecture</string>
     <string name="melding_tekst">Touchez pour ouvrir l\'app</string>
+    <string name="geluid_onweer">Orage</string>
+    <string name="geluid_stofzuiger">Aspirateur</string>
+    <string name="geluid_speeldoos">Berceuses boîte à musique</string>
+    <string name="voorjou">Pour toi</string>
+    <string name="gratis">Gratuit</string>
+    <string name="voorjou_speel">Lire %1$s</string>
+    <string name="voorjou_stop">Arrêter %1$s</string>
+    <string name="voorjou_baby_titel">Utérus et chut</string>
+    <string name="voorjou_baby_uitleg">Comme dans le ventre. Apaisant pour les nouveau-nés.</string>
+    <string name="voorjou_kind_titel">Boîte à musique et pluie douce</string>
+    <string name="voorjou_kind_uitleg">Des berceuses connues à la boîte à musique, avec de la pluie en fond.</string>
+    <string name="voorjou_tiener_titel">Bruit brun et pluie</string>
+    <string name="voorjou_tiener_uitleg">Profond et calme. Idéal aussi pour se concentrer.</string>
+    <string name="voorjou_volwassene_titel">Orage lointain</string>
+    <string name="voorjou_volwassene_uitleg">De la pluie et un léger grondement. L’un des sons de sommeil les plus choisis.</string>
+    <string name="voorjou_oudere_titel">Clair de Lune et pluie douce</string>
+    <string name="voorjou_oudere_uitleg">La musique classique lente aide beaucoup de seniors à mieux dormir.</string>
 </resources>

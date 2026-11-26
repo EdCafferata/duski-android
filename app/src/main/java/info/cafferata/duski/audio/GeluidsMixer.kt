@@ -6,7 +6,9 @@ import android.media.AudioTrack
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
+import info.cafferata.duski.model.GeluidCategorie
 import info.cafferata.duski.model.GeluidOptie
+import info.cafferata.duski.model.VoorJouMix
 import kotlin.concurrent.thread
 import kotlin.math.min
 
@@ -55,11 +57,24 @@ class GeluidsMixer {
         }
     }
 
+    /** Speelt de "Voor jou"-mix (altijd gratis) als één laag met id [VoorJouMix.ID]. */
+    fun speelVoorJou(mix: VoorJouMix) {
+        stopAlles()
+        val lagen = mix.lagen.mapNotNull { (id, volume) ->
+            GeluidCategorie.optie(id)?.let { GeluidGeneratorFabriek.maak(it.type) to volume }
+        }
+        volumes[VoorJouMix.ID] = maximaalVolume
+        start(VoorJouMix.ID, MixGenerator(lagen))
+    }
+
     private fun startLaag(optie: GeluidOptie) {
-        val generator = GeluidGeneratorFabriek.maak(optie.type)
         if (volumes[optie.id] == null) {
             volumes[optie.id] = min(0.7f, maximaalVolume)
         }
+        start(optie.id, GeluidGeneratorFabriek.maak(optie.type))
+    }
+
+    private fun start(id: String, generator: GeluidGenerator) {
 
         val bufferSize = AudioTrack.getMinBufferSize(
             sampleRate,
@@ -88,13 +103,13 @@ class GeluidsMixer {
         audioTrack = track
         actieveGenerator = generator
         moetStoppen = false
-        _actieveOptieId.value = optie.id
+        _actieveOptieId.value = id
 
         track.play()
         afspeelThread = thread(name = "duski-audio") {
             val buffer = FloatArray(1024)
             while (!moetStoppen) {
-                val volume = volumes[optie.id] ?: 0f
+                val volume = volumes[id] ?: 0f
                 for (i in buffer.indices) {
                     buffer[i] = generator.volgendeSample(sampleRate.toDouble()) * volume
                 }

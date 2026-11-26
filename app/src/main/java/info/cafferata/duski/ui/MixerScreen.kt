@@ -51,6 +51,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Icon
 import androidx.compose.ui.draw.alpha
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
 
 /**
  * Hoofdscherm: kies losse geluidslagen en mix ze — zelfde interactiepatroon
@@ -78,10 +81,15 @@ fun MixerScreen(
     // Stopt een lopend premium-geluid zodra het abonnement niet (meer) actief is.
     LaunchedEffect(heeftPremium, actieveOptieId) {
         if (heeftPremium || actieveOptieId == null) return@LaunchedEffect
-        val actieve = GeluidCategorie.entries.flatMap { it.opties }.firstOrNull { it.id == actieveOptieId }
+        // De "Voor jou"-mix is altijd gratis en staat niet in de lijst, dus die speelt door.
+        val actieve = GeluidCategorie.optie(actieveOptieId)
         if (actieve?.isPremium == true) mixer.stopAlles()
     }
 
+    // 65+: standaard wat grotere letters (wie zelf al groter heeft ingesteld, houdt dat).
+    val dichtheid = LocalDensity.current
+    val schaal = if (leeftijdsGroep == LeeftijdsGroep.OUDERE) maxOf(dichtheid.fontScale, 1.2f) else dichtheid.fontScale
+    CompositionLocalProvider(LocalDensity provides Density(dichtheid.density, schaal)) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -130,6 +138,8 @@ fun MixerScreen(
                 }
             }
 
+            item { VoorJouKaart(groep = leeftijdsGroep, mixer = mixer) }
+
             items(GeluidCategorie.entries) { categorie ->
                 Column {
                     Text(stringResource(categorie.titelRes), fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
@@ -161,6 +171,7 @@ fun MixerScreen(
                 Spacer(Modifier.height(24.dp))
             }
         }
+    }
     }
 }
 

@@ -79,7 +79,7 @@
     <string name="verlenging_jaar">La suscripción se renueva automáticamente cada año por %1$s, salvo que la canceles antes de que termine el periodo en curso en Suscripciones de Google Play.</string>
     <string name="verlenging_maand">La suscripción se renueva automáticamente cada mes por %1$s, salvo que la canceles antes de que termine el periodo en curso en Suscripciones de Google Play.</string>
     <string name="voor_wie">¿Para quién es este dispositivo?</string>
-    <string name="voordeel_alle">Los 26 sonidos</string>
+    <string name="voordeel_alle">Los 29 sonidos</string>
     <string name="voordeel_geen_account">Sin cuenta, sin anuncios</string>
     <string name="voordeligst">Mejor precio</string>
     <string name="wijzig">Cambiar</string>
@@ -87,4 +87,21 @@
     <string name="melding_kanaal">Reproducción</string>
     <string name="melding_titel">Duski está sonando</string>
     <string name="melding_tekst">Toca para abrir la app</string>
+    <string name="geluid_onweer">Tormenta</string>
+    <string name="geluid_stofzuiger">Aspiradora</string>
+    <string name="geluid_speeldoos">Nanas de caja de música</string>
+    <string name="voorjou">Para ti</string>
+    <string name="gratis">Gratis</string>
+    <string name="voorjou_speel">Reproducir %1$s</string>
+    <string name="voorjou_stop">Detener %1$s</string>
+    <string name="voorjou_baby_titel">Útero y shhh</string>
+    <string name="voorjou_baby_uitleg">Suena como en el vientre. Calma a los recién nacidos.</string>
+    <string name="voorjou_kind_titel">Caja de música y lluvia suave</string>
+    <string name="voorjou_kind_uitleg">Nanas conocidas en caja de música, con lluvia de fondo.</string>
+    <string name="voorjou_tiener_titel">Ruido marrón y lluvia</string>
+    <string name="voorjou_tiener_uitleg">Profundo y tranquilo. También ideal para concentrarte.</string>
+    <string name="voorjou_volwassene_titel">Tormenta a lo lejos</string>
+    <string name="voorjou_volwassene_uitleg">Lluvia con suaves truenos lejanos. Uno de los sonidos para dormir más elegidos.</string>
+    <string name="voorjou_oudere_titel">Clair de Lune y lluvia suave</string>
+    <string name="voorjou_oudere_uitleg">La música clásica lenta ayuda a muchas personas mayores a dormir mejor.</string>
 </resources>

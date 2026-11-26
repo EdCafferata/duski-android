@@ -79,7 +79,7 @@
     <string name="verlenging_jaar">The subscription renews automatically every year at %1$s unless you cancel before the end of the current period under Subscriptions in Google Play.</string>
     <string name="verlenging_maand">The subscription renews automatically every month at %1$s unless you cancel before the end of the current period under Subscriptions in Google Play.</string>
     <string name="voor_wie">Who is this device for?</string>
-    <string name="voordeel_alle">All 26 sounds</string>
+    <string name="voordeel_alle">All 29 sounds</string>
     <string name="voordeel_geen_account">No account, no ads</string>
     <string name="voordeligst">Best value</string>
     <string name="wijzig">Change</string>
@@ -87,4 +87,21 @@
     <string name="melding_kanaal">Playback</string>
     <string name="melding_titel">Duski is playing</string>
     <string name="melding_tekst">Tap to open the app</string>
+    <string name="geluid_onweer">Thunderstorm</string>
+    <string name="geluid_stofzuiger">Vacuum cleaner</string>
+    <string name="geluid_speeldoos">Music box lullabies</string>
+    <string name="voorjou">For you</string>
+    <string name="gratis">Free</string>
+    <string name="voorjou_speel">Play %1$s</string>
+    <string name="voorjou_stop">Stop %1$s</string>
+    <string name="voorjou_baby_titel">Womb and shushing</string>
+    <string name="voorjou_baby_uitleg">Sounds like the womb. Soothing for newborns.</string>
+    <string name="voorjou_kind_titel">Music box and soft rain</string>
+    <string name="voorjou_kind_uitleg">Familiar lullabies on a music box, with rain in the background.</string>
+    <string name="voorjou_tiener_titel">Brown noise and rain</string>
+    <string name="voorjou_tiener_uitleg">Deep and calm. Great for focus too.</string>
+    <string name="voorjou_volwassene_titel">Distant thunderstorm</string>
+    <string name="voorjou_volwassene_uitleg">Rain with soft, distant rumbles. One of the most popular sleep sounds.</string>
+    <string name="voorjou_oudere_titel">Clair de Lune and soft rain</string>
+    <string name="voorjou_oudere_uitleg">Slow classical music helps many older adults sleep better.</string>
 </resources>
